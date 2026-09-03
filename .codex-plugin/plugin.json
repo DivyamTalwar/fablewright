@@ -1,0 +1,38 @@
+{
+  "name": "fablewright",
+  "version": "1.0.0",
+  "description": "Fable 5.1 writes the specification and accepts the result; pinned GPT-5.6, DeepSeek and GLM lanes perform it; a fresh cross-family reader returns one verdict. Routes are declared before the first delegation and every model pin is proven.",
+  "author": {
+    "name": "Divyam Talwar",
+    "url": "https://github.com/divyamtalwar"
+  },
+  "homepage": "https://github.com/divyamtalwar/fablewright#readme",
+  "repository": "https://github.com/divyamtalwar/fablewright",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "claude-code",
+    "orchestration",
+    "multi-agent",
+    "multi-model",
+    "gpt-5.6",
+    "fable"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "FABLEWRIGHT",
+    "shortDescription": "Fable 5.1 writes the play; pinned lanes perform it; a fresh reader judges it.",
+    "longDescription": "FABLEWRIGHT keeps Claude Fable 5.1 as the wright: it owns intent, architecture, decomposition, the written specification, verification of everything returned, and final acceptance. Before the first task tool call it posts a machine-auditable CALL SHEET declaring one of solo, delegate, audit, full, or ensemble. Solo is the default and delegation must pay for its own specification. Cast lanes are pinned profiles - GPT-5.6 Luna at max for routine work, GPT-5.6 Terra at xhigh for judgment-heavy work, DeepSeek V4 Flash for high-throughput mechanical transformation, GLM-4.6 for independent cross-family implementation. A fresh read-only reader returns exactly ship, fix-first, or rethink, and must come from a different model family than the author or the review is recorded as same-family residual risk. Every model pin is verified against runtime evidence after the fact: a substituted model, effort, provider, or sandbox stops the lane instead of returning unverified work as if it had been routed correctly.",
+    "developerName": "Divyam Talwar",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/divyamtalwar/fablewright",
+    "defaultPrompt": [
+      "Use $fablewright:fablewright to post a call sheet before any task tool, then build and verify this.",
+      "Default to solo; select delegate, audit, full, or ensemble only when the stated risk earns it."
+    ]
+  }
+}

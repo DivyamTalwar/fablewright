@@ -1,0 +1,2 @@
+# role<TAB>sha256 of a previously shipped profile that may be migrated in place.
+# Empty in 1.0.0: there is no earlier FABLEWRIGHT profile to migrate from.

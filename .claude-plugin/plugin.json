@@ -1,0 +1,28 @@
+{
+  "name": "fablewright",
+  "displayName": "FABLEWRIGHT",
+  "version": "1.0.0",
+  "description": "Risk-gated multi-model orchestration. Claude Fable 5.1 writes the specification and accepts the result; pinned GPT-5.6 Luna, GPT-5.6 Terra, DeepSeek V4 Flash and GLM-4.6 lanes implement it; a fresh cross-family reader returns one verdict. Every route is declared before the first delegation and every model pin is proven, not assumed.",
+  "author": {
+    "name": "Divyam Talwar",
+    "url": "https://github.com/divyamtalwar"
+  },
+  "homepage": "https://github.com/divyamtalwar/fablewright#readme",
+  "repository": "https://github.com/divyamtalwar/fablewright",
+  "license": "MIT",
+  "keywords": [
+    "orchestration",
+    "multi-agent",
+    "multi-model",
+    "code-review",
+    "claude-code",
+    "codex",
+    "fable"
+  ],
+  "skills": "./skills",
+  "agents": [
+    "./hosts/claude-code/agents/fablewright-reader.md",
+    "./hosts/claude-code/agents/fablewright-scout.md"
+  ],
+  "commands": "./hosts/claude-code/commands"
+}

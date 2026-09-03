@@ -1,0 +1,15 @@
+{
+  "name": "fablewright",
+  "owner": {
+    "name": "Divyam Talwar",
+    "url": "https://github.com/divyamtalwar"
+  },
+  "plugins": [
+    {
+      "name": "fablewright",
+      "source": "./",
+      "description": "Fable 5.1 writes the play and never reviews the performance: risk-gated routing across pinned GPT-5.6, DeepSeek and GLM lanes, with proven model routing and a fresh cross-family reader."
+    }
+  ],
+  "description": "FABLEWRIGHT - risk-gated multi-model orchestration for Claude Code and Codex. One wright writes the specification, pinned lanes perform it, and a fresh cross-family reader returns the verdict."
+}

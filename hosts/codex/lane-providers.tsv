@@ -1,0 +1,19 @@
+# FABLEWRIGHT lane -> Codex model_provider mapping.
+#
+# Optional fallback. The preferred place for a provider pin is one `model_provider`
+# line in the lane profile itself, which both the native Codex spawn path and
+# scripts/cast-call.sh read, and which install-agents.sh accepts as a CUSTOMIZED state.
+# This file exists for the case where you would rather not touch the installed profile;
+# cast-call.sh reads it and passes `-c model_provider=<id>` per invocation. It has no
+# effect on natively spawned agents.
+#
+# Format: <role-id><TAB><model_provider id>
+# The id must match a [model_providers.<id>] block in your Codex config.toml.
+# See skills/fablewright/references/providers.md.
+#
+# Nothing is mapped by default. Uncomment and edit to match YOUR provider ids, or pass
+# --provider <id> on the command line, which always wins over this file.
+#
+# flash-implementer	opencode-go
+# glm-implementer	zai
+# glm-reviewer	zai
