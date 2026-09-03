@@ -6,7 +6,7 @@
 
 [![verify](https://github.com/divyamtalwar/fablewright/actions/workflows/ci.yml/badge.svg)](https://github.com/divyamtalwar/fablewright/actions/workflows/ci.yml)
 [![tests](https://img.shields.io/badge/tests-143%20offline-brightgreen.svg)](tests/run-tests.sh)
-[![checks](https://img.shields.io/badge/verify-149%20checks-brightgreen.svg)](scripts/verify.sh)
+[![verify](https://img.shields.io/badge/verify-fail--closed-brightgreen.svg)](scripts/verify.sh)
 [![hosts](https://img.shields.io/badge/hosts-Claude%20Code%20%C2%B7%20Codex-blue.svg)](#quickstart)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -19,7 +19,7 @@ have done.
 
 </div>
 
-![FABLEWRIGHT architecture](docs/images/architecture.png)
+![One wright plans and accepts; four pinned lanes implement; a fresh read-only reader from a different model family returns ship, fix-first or rethink](docs/images/architecture.png)
 
 ---
 
@@ -83,7 +83,7 @@ ERROR: lane luna was pinned to effort 'max' but thread bbbb... also ran at: low
        (across 3 turns).
 ```
 
-![Proven routing versus a refused lane](docs/images/proof.png)
+![Two runs of the same command: one verified and exiting 0, one refused with exit 69 because the lane dropped below its pinned effort](docs/images/proof.png)
 
 ---
 
@@ -165,7 +165,7 @@ anyone starts, a written integration step owned by the wright, one reader over t
 *combined* change set, and every lane from one model family — because a single reader
 cannot be cross-family with two families at once.
 
-![The five routes and how the wright chooses between them](docs/images/routes.png)
+![The five routes ordered cheapest-first, with who implements, who reviews, and the question that selects each](docs/images/routes.png)
 
 ---
 
@@ -300,6 +300,44 @@ scripts/                ask-wright · cast-call · install-agents · inspect-age
                         verify · bump-version
 tests/                  offline suite with synthetic rollout fixtures
 ```
+
+## Contributing
+
+Issues and pull requests are welcome, and the bar is the same one the project holds
+itself to: evidence over description.
+
+`main` is protected. Every change arrives as a pull request, CI must be green on both
+runners, and the maintainer merges. That is not ceremony — it is the same separation of
+authorship and acceptance the tool itself enforces.
+
+```sh
+git switch -c fix/short-scope
+# change something
+sh tests/run-tests.sh      # 143 offline cases, no model calls
+sh scripts/verify.sh       # manifests, pins, wording, links, images, then the suite
+shellcheck --severity=warning scripts/*.sh tests/*.sh
+git push -u origin fix/short-scope
+gh pr create
+```
+
+Both gates are offline: they call no model, spend no tokens, and write nothing outside a
+temporary directory. A green `verify.sh` is the bar.
+
+Before proposing a change to the scripts, read
+**[Traps this codebase has already hit](CONTRIBUTING.md#traps-this-codebase-has-already-hit)**.
+The code carries no inline commentary, so that section is where the reasoning lives —
+every entry is a real defect found in review, not a hypothetical. Changes that weaken
+fail-closed behaviour will be declined however convenient they are; the rules are listed
+in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Found something that behaves differently from what the docs promise? Open an issue with
+the exact command and its exact output. If a lane was refused, that may be correct — this
+tool stops a lane rather than returning work it could not verify — so paste the refusal
+and let the evidence settle it.
+
+Security reports go through
+[GitHub's private advisory flow](https://github.com/divyamtalwar/fablewright/security/advisories/new),
+never a public issue. See [SECURITY.md](SECURITY.md).
 
 ## Prior art
 

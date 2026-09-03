@@ -254,6 +254,26 @@ for cmd in hosts/claude-code/commands/*.md; do
 done
 [ "$bare_paths" -eq 0 ] && ok 'every command references repo files via ${CLAUDE_PLUGIN_ROOT}'
 
+group 'every referenced image exists'
+missing_images=0
+for image in $(grep -oE '!\[[^]]*\]\(([^)]+\.(png|jpg|jpeg|svg|gif))\)' README.md docs/*.md 2>/dev/null |
+  sed 's/.*(//; s/)$//' | sort -u); do
+  case "$image" in http*) continue ;; esac
+  if [ -f "$image" ]; then
+    ok "image exists: $image"
+  else
+    bad "image exists: $image" 'a README referencing a missing image renders a broken icon'
+    missing_images=$((missing_images + 1))
+  fi
+done
+for image in docs/images/architecture.png docs/images/proof.png docs/images/routes.png; do
+  if grep -Fq "$image" README.md; then
+    ok "README uses the diagram: ${image##*/}"
+  else
+    bad "README uses the diagram: ${image##*/}"
+  fi
+done
+
 group 'every internal document link resolves'
 broken_links=0
 link_report=${TMPDIR:-/tmp}/fablewright-links.$$

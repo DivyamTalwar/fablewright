@@ -219,7 +219,7 @@ passed: 143   failed: 0
 ALL TESTS PASSED
 
 $ sh scripts/verify.sh
-verify 1.0.0: passed 149, failed 0
+verify 1.0.0: passed 155, failed 0
 VERIFY PASSED
 ```
 
