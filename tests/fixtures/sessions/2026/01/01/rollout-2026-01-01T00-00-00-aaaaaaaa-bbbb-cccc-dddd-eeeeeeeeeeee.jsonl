@@ -1,0 +1,5 @@
+{"type":"session_meta","payload":{"id":"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee","parent_thread_id":"11111111-2222-3333-4444-555555555555","agent_role":"fablewright_luna_implementer","agent_path":"/agents/fablewright-luna-implementer.toml","model_provider":"openai"}}
+{"type":"session_meta","payload":{"id":"11111111-2222-3333-4444-555555555555","parent_thread_id":null,"agent_role":null,"agent_path":null,"model_provider":"openai"}}
+{"type":"turn_context","payload":{"model":"gpt-5.6-luna","effort":"max","cwd":"/repo","sandbox_policy":{"type":"workspace-write"},"permission_profile":{"type":"managed"}}}
+{"type":"turn_context","payload":{"model":"gpt-5.6-luna","effort":"ultra","cwd":"/repo","sandbox_policy":{"type":"workspace-write"},"permission_profile":{"type":"managed"}}}
+{"type":"event_msg","payload":{"secret":"this must never be emitted"}}
