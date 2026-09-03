@@ -1,0 +1,4 @@
+interface:
+  display_name: "FABLEWRIGHT"
+  short_description: "Post a risk-gated call sheet before delegating"
+  default_prompt: "Use $fablewright to post a FABLEWRIGHT CALL SHEET before the first task tool; default to solo and select delegate, audit, full, or ensemble only when the stated risk earns it."
