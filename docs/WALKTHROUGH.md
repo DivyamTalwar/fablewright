@@ -219,9 +219,15 @@ passed: 143   failed: 0
 ALL TESTS PASSED
 
 $ sh scripts/verify.sh
-verify 1.0.0: passed 155, failed 0
+verify 1.0.0: passed 154, failed 0
 VERIFY PASSED
 ```
+
+The verifier's **count is environment-dependent; its verdict is not.** 154 is the
+invariant floor — what a machine with neither CLI installed runs, and what CI asserts.
+With the Claude CLI on `PATH` the optional `claude plugin validate --strict` manifest
+check also runs and the total is 155. Quote 154 when you need a number that holds
+everywhere.
 
 Both call no model and write nothing outside a temporary directory. The test suite uses
 synthetic session fixtures under `tests/fixtures/`, plus a stub runtime that lets the

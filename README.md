@@ -134,6 +134,26 @@ Then invoke `$fablewright` and let it post the call sheet before it calls anyone
 Installing lane profiles is deliberately a separate step: installing a plugin registers
 skills, not user-owned agent profiles.
 
+### One-minute smoke test
+
+Four commands. None of them calls a model, spends a token, or writes outside a temporary
+directory, so it is safe to run before you trust anything here.
+
+```sh
+sh scripts/verify.sh                                  # the repo checks itself
+sh tests/run-tests.sh                                 # 143 offline cases
+sh scripts/install-agents.sh --host codex --dry-run   # what WOULD be written, nothing is
+sh scripts/cast-call.sh --lane terra --check          # is this lane real and runnable?
+```
+
+Expect `VERIFY PASSED`, `ALL TESTS PASSED`, six `Would install:` lines, and then either a
+lane that validates or a named reason it cannot. `--check` resolving a lane is the point
+where an install stops being a claim.
+
+The verifier's count moves with your environment even though its verdict does not: **154**
+on a machine with neither CLI installed — the floor CI asserts — and 155 when the Claude
+CLI is present and the optional manifest validator can also run.
+
 ---
 
 ## The call sheet
