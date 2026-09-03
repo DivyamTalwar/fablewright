@@ -1,0 +1,43 @@
+name: Feature request
+description: Propose a change to the routing contract, a lane, or the tooling
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Changes that weaken fail-closed behaviour will be declined however convenient
+        they are — see the rules in CONTRIBUTING.md.
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What goes wrong today. A concrete situation, not a capability wish.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Routing contract (SKILL.md / references)
+        - A lane profile
+        - scripts/
+        - Host support (Claude Code or Codex)
+        - Docs
+    validations:
+      required: true
+  - type: textarea
+    id: failclosed
+    attributes:
+      label: How this stays fail-closed
+      description: >
+        If it adds a path where something proceeds without verification, say so plainly
+        and explain why that is acceptable.
+    validations:
+      required: true

@@ -1,0 +1,10 @@
+.DS_Store
+*.swp
+*.swo
+.env
+.env.*
+!.env.example
+node_modules/
+.venv/
+*.log
+.omc/
