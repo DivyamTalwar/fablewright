@@ -60,17 +60,26 @@ risk: <concise, task-specific rationale>
 ~~~
 
 No task tool call may precede it. `solo` is the default and needs a reason to leave, not
-a reason to keep. A later call sheet may only **escalate**, only on newly observed risk,
-and only with that evidence recorded. Never silently downgrade, and never add a lane
-that the posted sheet did not call.
+a reason to keep. A later call sheet may **escalate** on newly observed risk, with that
+evidence recorded, and may never add a lane the posted sheet did not call.
+
+Reducing rigour is the constrained direction, not a forbidden one. Dropping a reader,
+widening a sandbox, or standing a lane down needs the same written evidence an
+escalation does — what is banned is doing it *silently*. One reduction is planned rather
+than reactive: when `ensemble` cannot meet its disjoint-ownership or single-family
+requirements, the plan becomes sequential `full` runs and the risk line records why
+(`references/role-contracts.md`). That is a change of structure, not a loss of rigour.
 
 ## Routes
+
+Listed in the order the decision ladder in `references/call-sheet.md` works down.
+Stop at the first match; do not shop for a route further down the table.
 
 | route | implements | wright verifies | reader | use when |
 |---|---|---|---|---|
 | `solo` | wright | n/a | none | bounded, low-risk, reversible, cheap to redo |
-| `delegate` | one cast lane | yes | none | bounded and fully specifiable, and worth the wright's context |
 | `audit` | wright | yes | one | the wright is the fastest author but the risk earns an independent read |
+| `delegate` | one cast lane | yes | none | bounded and fully specifiable, and worth the wright's context |
 | `full` | one cast lane | yes | one | judgment-heavy, high-risk, or wide blast radius |
 | `ensemble` | 2+ cast lanes | yes | one | genuinely parallel work over **provably disjoint** file ownership |
 

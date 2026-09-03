@@ -221,6 +221,7 @@ Written against the real runtime rather than assumed from documentation:
   altered what the worker is told, so position is checked by counting the `"""`
   delimiters that precede it.
 - `wire_api` accepts only `responses` on Codex CLI 0.153.0. `chat` returns "is no longer
-  supported" and `openai` returns "unknown variant". The published config schema still
-  advertises all three; the binary is the authority. An endpoint that speaks only
-  chat-completions cannot serve a Codex lane on this version.
+  supported" and `openai` returns "unknown variant". The published config schema agrees
+  rather than conflicting: its `WireApi` is a `oneOf` carrying the single variant
+  `responses`. An endpoint that speaks only chat-completions cannot serve a Codex lane on
+  this version.
